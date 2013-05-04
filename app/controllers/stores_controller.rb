@@ -85,7 +85,7 @@ class StoresController < ApplicationController
     @strcount = Hash.new
     @stores.each do |store|
       count = ListItem.get_item_count(store.id)
-      #  Safir comment - Refer - http://www.ruby-doc.org/core-1.9.3/Hash.html
+      #  Refer - http://www.ruby-doc.org/core-1.9.3/Hash.html
       #  move Hash.new before the for loop, otherwise it will re initialize
       #  everytime the loop is executed destroying previous content.
       #  I got this working, Check to see what is the difference between
