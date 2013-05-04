@@ -1,0 +1,48 @@
+<h3>My Stores</h3>
+<div data-role="content">
+	<ul data-role="listview" data-inset="true" data-split-theme="d" data-split-icon="delete" >
+		<% @stores.each do |store| %>
+		<li>
+			<%= link_to store.name, :action => 'show_item',:id => store  %>
+			<p>
+			
+			</p> 
+			<%= link_to 'X', {:action => 'remove',:id => store }, :data => { :confirm => 'Delete?' }%>
+		</li>
+		<% end %>
+	</ul>
+	<% if @stores.empty? %>
+	<p>
+		ListIt in 3 steps
+		Add Store - Add Items - Share. Happy Shopping.
+	</p>
+	<%end%>	
+</div>
+<table>
+	<th>Store Name</th>
+	<th>Remove Store</th>
+
+	<% @stores.each do |store| %>
+	<tr>
+		<!--<%= link_to 'Show', store %>
+		<%= link_to 'Edit', edit_store_path(store) %> -->
+		<td> <%= link_to store.name, :action => 'show_item',:id => store  %> </td>
+		<td> <%= link_to 'X', {:action => 'remove',:id => store }, :data => { :confirm => 'Delete?' }%>
+		&nbsp;&nbsp; </td>
+		</td>
+	</tr>
+	<% end %>
+	<% if @stores.empty? %>
+	<p>
+		ListIt in 3 steps
+		<br />
+		Add Store - Add Items - Share. Happy Shopping.
+	</p>
+	<%end%>
+
+	</tr>
+</table>
+
+<br />
+
+<%= link_to 'Add a Store', new_store_path %>

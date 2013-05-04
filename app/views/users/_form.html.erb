@@ -1,0 +1,33 @@
+<%= form_for @user, :html=>{ :multipart => true } do |f| %>
+<% if @user.errors.any? %>
+<div class="alert alert-error">
+	<a class="close" data-dismiss="alert" href="#">×</a>
+	<h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+	<ul>
+		<% @user.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<%= f.label :name %>
+<%= f.text_field :name, :size => 40 %>
+
+<%= f.label :email %>
+<%= f.text_field :email %>
+
+<%= f.label :password %>
+<%= f.password_field :password %>
+<%= f.label :password_confirmation, 'Confirm Password' %>
+<%= f.password_field :password_confirmation, :size => 40 %>
+<%= f.label :avatar, 'Profile Pic' %>
+<%= f.file_field :avatar %>
+
+<br><br><br>
+<%= f.submit 'Sign Up', :class=>'btn btn-primary'%>
+
+<% end %>

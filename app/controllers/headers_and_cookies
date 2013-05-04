@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK 
+Content-Type: application/json; charset=utf-8
+X-Ua-Compatible: IE=Edge
+Etag: "b5d7767752c2c12b74615b638181dce2"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: ee92a15af7d4195713e8dd3663e5aff8
+X-Runtime: 0.093788
+Content-Length: 316
+Server: WEBrick/1.3.1 (Ruby/1.9.3/2012-04-20)
+Date: Sat, 11 Aug 2012 11:42:43 GMT
+Connection: Keep-Alive
+Set-Cookie: _listit_session=BAh7CjoMdXNlcl9pZGkGOhFvcmlnaW5hbF91cmkwOgluYW1lSSIRU2FmaXIgU2FsaWh1BjoGRVQ6FHByb2ZpbGVfcGljX3VybEkiLC9hc3NldHMvdXNlcnMvMS90aHVtYi9tZS5qcGc%2FMTM0NDYzMDA4MAY7CEZJIg9zZXNzaW9uX2lkBjsIRkkiJTFlMGNhZDlkNGUwYmMxMjg1YjBhZDk3MTRkNzlkYTZhBjsIVA%3D%3D--274106344049a37e3c720aae6d2a43cec8e43b68; path=/; HttpOnly
+

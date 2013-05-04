@@ -1,0 +1,51 @@
+<div class="row">
+<div class="span4">
+<%= form_tag :class=>'well form-inline', :remote=>true  do %>
+
+<label for="email">Email</label>
+<%= text_field_tag :email, params[:email] %>
+
+<label for="password">Password:</label>
+<%= password_field_tag :hashed_password, params[:hashed_password] %>
+  <div class="field">  
+    <%= label_tag :remember_me %>  
+    <%= check_box_tag :remember_me, 1, params[:remember_me] %>  
+  </div>
+<p>
+	<%= submit_tag "Login", :class=>'btn btn-primary' %> &nbsp;
+	<%= link_to 'Forgot password', {:action => 'show_forgot_password'}, :class=>'btn btn-inverse'%>
+</p>
+
+<% end %>
+</div>
+<div class="span6">
+	<fieldset>
+		Mark your list and keep doing it. You will like it.<br>
+		Powered by Rails.
+		
+		<%= button_to 'Sign Up', {:action => 'new'}, :class=>'btn btn-inverse'%>
+	</fieldset>
+</div>
+</div>
+      <!-- Example row of columns -->
+
+      <div class="row">
+        <div class="span4">
+          <h2>Jot Down</h2>
+           <p>We give you the power to store and retreive your daily 
+              errands. You can group by store name or any tag that you like.
+              Mark them done as you go and quick add them from your history to repeat 
+              do it.
+           </p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+        </div>
+        <div class="span4">
+          <h2>Share</h2>
+           <p>Share your todo list with your family and friends.
+              Even better, email your list and copy your friends and
+              your list is automatically added to the list.
+           </p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+       </div>
+      </div>
+

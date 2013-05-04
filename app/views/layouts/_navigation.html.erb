@@ -1,0 +1,53 @@
+<a class="brand" href="/">ListIt</a>
+<ul class="nav">
+	<% if session[:user_id] %>
+	<li class="<%= "active" if params[:controller] == "stores"%>" >
+		<%= link_to "My Stores", stores_path  %>
+	</li>
+	<li class="<%= "active" if params[:controller] == "shares"%>" >
+		<%= link_to "Share", shares_path  %>
+	</li>
+	<li class="<%= "active" if params[:uri] == "stores/show_history"%>" >
+		<%= link_to 'History', {:controller => "stores", :action => 'show_history',:id=> session[:user_id]}, :loading => "document.getElementById('spinner').style.visibility='visible';"%>
+	</li>
+	<li class="<%= "active" if params[:controller] == "image_uploads"%>" >
+		<%= link_to 'Pictures', {:controller => "image_uploads", :action => 'index'}, :loading => "document.getElementById('spinner').style.visibility='visible';" %>
+	</li>
+	<li class="<%= "active" if params[:controller] == "system" %>" >
+		<%= link_to 'About', {:controller => "system", :action => 'about'},data: { "loading-text" => "wait ..." },:loading => "document.getElementById('spinner').style.visibility='visible';"   %>
+	</li>
+	<% else %>
+	<li class="active">
+		<%= link_to "Home", root_path, :class => 'brand' %>
+	</li>
+	<li>
+		<%= link_to 'About', :controller => "system", :action => 'about'%>
+	</li>
+</ul>
+<% end%> <!-- if logged in -->
+</ul>
+<ul class="nav pull-right">
+	<!--<li><a href="/sign_in">Sig In</a></li> -->
+	<% if session[:user_id] %>
+	<li>
+		<% str = 'Welcome '+ session[:name]%>
+		<%= link_to str , :controller => "users", :action => 'show_profile',:id=> session[:user_id]%>
+	</li>
+	<li>
+		<%= image_tag session[:profile_pic_url]  %>
+	</li>
+	<li id="fat-menu" class="dropdown">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Account <b class="caret"></b> </a>
+		<ul class="dropdown-menu">
+			<li>
+				<%= link_to 'Manage Account' , :controller => "users", :action => 'show_profile',:id=> session[:user_id]%>
+			</li>
+
+			<li class="divider"></li>
+			<li>
+				<%= link_to 'Logout', :controller => "system", :action => 'logout' %>
+			</li>
+		</ul>
+	</li>
+	<% end %>
+</ul>

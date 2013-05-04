@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1><%= @share.share_name %>, You friend, <%= @share.user_name%> has shared <%= @share.stores_name %> with you.</h1>
+    <p>
+      This list could be possibly <%= @share.user_name %> thinks is
+     important <br>.  
+    </p>
+    <p>
+      To login to the site, just follow this link: <%= @url %>.
+    </p>
+    <p>
+    	Cheers! <br>
+        ListIt Team.
+    </p>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<div class="row">
+<div class="span4">
+<table class="table table-striped">
+	<% if !@stores.empty? %>
+              <thead><tr><th>To Do</th><th>Delete</th></thead>
+        <% end %>
+		<% @stores.each do |store| %>
+                 <tr><td> <H3>
+			<%= link_to store.name, :action => 'show_item',:id => store  %>
+                          <%= @strcount[store.name] %></H3><%=@itemcount%><%=@confirmation%>
+                     </td>
+                     <td>
+			<%= link_to raw('<i class="icon-trash"></i>'), {:action => 'remove',:id => store },  :data => { :confirm => 'Delete?',:on => @confirmation }%>
+                 </td></tr>
+		<% end %>
+</table>
+</div>
+</div>
+	<% if @stores.empty? %>
+	<p>
+		ListIt in 3 steps
+		Add Store - Add Items - Share. Happy Shopping.
+	</p>
+	<%end%>	
+
+<%= link_to 'Add a Store',  new_store_path, :class=>'btn btn-inverse' %>

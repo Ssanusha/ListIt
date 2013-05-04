@@ -1,0 +1,21 @@
+<div data-role="content">
+
+<%= form_for @user, :action => 'register_user'  do |f| %>
+	<p>
+		<%= f.label 'Name'%>
+		<%= f.text_field :name %>
+	</p>
+	<p>
+		<%= f.label 'E-mail'%>
+		<%= f.text_field :email %>
+	</p>
+	<p>
+		<%= f.label 'Password'%>
+		<%= f.text_field :password %>
+	</p>
+	<p>
+		<%= f.submit 'Register'%>
+	</p>
+<% end %>
+</div>
+

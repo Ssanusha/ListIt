@@ -1,0 +1,10 @@
+<%= form_for @newItem , :url => { :action => "add_item",:id => @store.id }, :class=>'well form-inline' do |f| %>
+  <div class="field">
+	 <%= f.label 'name'%><%= f.text_field :name %>
+</div>	 
+  <div class="field">
+	 <%= f.label 'Quantity'%><%= f.text_field :quantity%>
+</div>	 
+<%= f.submit 'Add To List', :class=>'btn btn-primary',:id=>:foo %>
+<!-- ,:action => 'add_item', :class => "submit", :id => @store.id -->
+<%end%>

@@ -1,0 +1,50 @@
+<div class="row">
+	<div class="span6">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th><H3><%= @store.name %> </H3></th>
+					<th></th>
+					<th></th>
+					<th><%= link_to raw('<i class="icon-envelope" title="Mail the List"></i>'), :action => 'mail_list',:list =>@listItem,:id=>@store.id %></th>
+
+			</thead>
+			</tr>
+
+			<% if @listItem %>
+			<p>
+				
+				<tr>
+					<% @listItem.each do |item| -%>
+					<td> <%= item.name %> </td>
+					<td> <%= button_to 'Done', {:controller => 'item_histories', :action => 'bag_item', :item_id => item.id}, :class=>'btn btn-inverse'  %></td>
+					<td> <%= button_to 'Remove', {:action => 'delete_item', :item_id => item.id, :store_id => @store.id}, :class=>'btn btn-danger', :data => { :confirm => 'Delete?' }  %></td>
+					<td></td>
+				</tr>
+
+				<% end %>
+				
+				<% if @listItem.empty? %>
+			<p>
+				No Items in the List...Consider adding items
+			</p>
+			<% end %>
+			<% end %>
+			</p>
+		</table>
+	</div>
+</div>
+
+<div class="row">
+	<div class="span6">
+		<b>Add an item</b>
+		<%= render "show_list" %>
+	</div>
+</div>
+<p>
+
+	<%= link_to 'Back', stores_path %>
+
+</p>
+
+</div>

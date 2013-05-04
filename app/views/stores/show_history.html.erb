@@ -1,0 +1,40 @@
+	<%= render "show_history_filter"%>
+	
+		<% if @itemhis %>
+
+<table class="table table-striped">
+        <% if !@itemhis.empty? %>
+              <thead><tr><th>Store Name</th><th></th><th></th><th></th><th></th></thead>
+        <% end %>
+		<% temp_store_name=''%>
+		<% @itemhis.each do |item| -%>
+		
+                 <tr>
+		<% if temp_store_name != item.stores_name %><!-- item.name is STORE NAME -->
+
+                   <% if temp_store_name != '' %>
+                   <% end %>
+                <td>
+		<h3><%= item.stores_name%></h3>&nbsp;
+                 </td> <th>Quantity</th><th>Purchased Date</th><th>Do It Again</th><th></th></tr>
+                <% else %>
+		<% end %>
+		<% temp_store_name = item.stores_name %>
+                   <tr>        
+			<td><%= item.item_name %> </td>
+			<td><%= item.item_quantity %></td>
+		        <td><%= item.created_at %> </td>
+                   <td>     
+
+			<%= button_to 'Add To List', {:action => 'add_item_from_history', :id => item.stores_id, :item_id => item.id, :store_name=>item.stores_name}, :class=>'btn btn-primary' %>
+
+                 </td>
+                        <td></td>
+                 </tr>
+		<% end %>
+		<% if @itemhis.empty? %>
+		Bagged history empty.
+		<%end%>
+                </table>
+		<% end %>
+	

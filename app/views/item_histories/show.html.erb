@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Item:</b>
+  <%= @item_history.item_id %>
+</p>
+
+<p>
+  <b>Stores:</b>
+  <%= @item_history.stores_id %>
+</p>
+
+<p>
+  <b>Item name:</b>
+  <%= @item_history.item_name %>
+</p>
+
+<p>
+  <b>Item quantity:</b>
+  <%= @item_history.item_quantity %>
+</p>
+
+
+<%= link_to 'Edit', edit_item_history_path(@item_history) %> |
+<%= link_to 'Back', item_histories_path %>

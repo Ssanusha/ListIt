@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @share.user_id %>
+</p>
+
+<p>
+  <b>User name:</b>
+  <%= @share.user_name %>
+</p>
+
+<p>
+  <b>User email:</b>
+  <%= @share.user_email %>
+</p>
+
+<p>
+  <b>Share name:</b>
+  <%= @share.share_name %>
+</p>
+
+<p>
+  <b>Share email:</b>
+  <%= @share.share_email %>
+</p>
+
+<p>
+  <b>Stores:</b>
+  <%= @share.stores_id %>
+</p>
+
+<p>
+  <b>Stores name:</b>
+  <%= @share.stores_name %>
+</p>
+
+
+<%= link_to 'Edit', edit_share_path(@share) %> |
+<%= link_to 'Back', shares_path %>

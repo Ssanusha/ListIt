@@ -1,0 +1,30 @@
+<ul id="myTab" class="nav nav-tabs">
+	<li class="active">
+		<a href="#home" data-toggle="tab">My Stores</a>
+	</li>
+	<li>
+		<a href="#profile" data-toggle="tab">Stores Shared with me</a>
+	</li>
+</ul>
+
+<div id="myTabContent" class="tab-content">
+	<div class="tab-pane fade in active" id="home">
+		<p>
+			<% @stores.each do |store| %>
+		<p>
+			<h3><%= link_to store.name, :action => 'show_share_item',:id => store, :show => 'yes'  %></h3>
+		</p>
+		<% end %>
+		</p>
+	</div>
+	<div class="tab-pane fade" id="profile">
+		<p>
+			<% @sharedStores.each do |store| %>
+		<p>
+			<h3><%= link_to store.name, :action => 'show_share_item',:id => store  %></h3>
+		</p>
+		<% end %>
+		</p>
+	</div>
+</div>
+

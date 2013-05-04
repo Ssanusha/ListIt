@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>You Can Now - Do Everything!</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<%= javascript_include_tag "application" %>
+		<%= stylesheet_link_tag    "application", :media => "all" %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		<!-- <a href="index.html" data-icon="delete">Cancel</a> -->
+		<header class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<%= render 'layouts/navigation' %>
+				</div>
+			</div>
+		
+		</header>
+		<div class="container">
+
+			<!-- Main hero unit for a primary marketing message or call	 to action -->
+			<div class="hero-unit">
+				<% if flash[:notice] -%>
+				<div class="alert alert-success" >
+					<a class="close" data-dismiss="alert">×</a>
+					<%= flash[:notice] %>
+				</div>
+				<% end -%>
+				<% if flash[:alert] -%>
+				<div class="alert alert-error" id="alert">
+					<a class="close" data-dismiss="alert" href="#">×</a>
+					<%= flash[:alert] %>
+				</div>
+				<% end -%>
+
+				<%= yield%>
+			</div>
+
+			<hr>
+			<div class="span10">
+				<footer>
+					<p>
+						&copy; Company 2012
+					</p>
+				</footer>
+			</div>
+
+		</div>
+		<!-- /container -->
+	</body>
+</html>

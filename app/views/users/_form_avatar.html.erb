@@ -1,0 +1,7 @@
+<%= form_for  @user, :url => user_path(@user), :html=>{ :method => "put",:multipart => true } do |f| %>
+<%= f.label :avatar, 'Profile Pic' %>
+<%= f.file_field :avatar %>
+
+<br>
+<%= f.submit 'Update Profile Picture', :class=>'btn btn-primary'%>
+<% end %>

@@ -1,0 +1,68 @@
+<p>
+	Store Name:
+	<b><font color="green"><%= @store.name %></b></font>
+
+	<% if @listItem %>
+	has -
+	<% @listItem.each do |item| -%>
+	<%= item.name %> &nbsp;
+	(<%= item.quantity %>), &nbsp;
+	<% end %>
+	<% if @show != 'yes'%>
+	<%= link_to raw('<i class="icon-envelope" title="Mail the List"></i>'),:controller => 'stores', :action => 'mail_list',:list =>@listItem,:id=>@store.id %>
+	<% end %>
+	<% if @listItem.empty? %>
+<p>
+	No Items in the List
+</p>
+<% end %>
+<% end %>
+</p>
+
+<% if @show == 'yes'%>
+<% if @shareList %>
+<p>
+	<b>Shared with</b>
+	<br/>
+	<div class="row">
+		<div class="span6">
+			<table class="table table-striped">
+				<% @shareList.each do |share| -%>
+				<tr>
+					<!-- :class=>:destroy -->
+					<td><%= share.share_name %></td>
+					<td><%= share.share_email %> </td>
+					<td><%= button_to 'Delete', {:action => 'delete_share', :id => share.id}, :class=>'destroy btn btn-danger'  %></td>
+					<td><%= link_to raw('<i class="icon-envelope" title="Mail the List"></i>'), :action => 'mail_list',:list =>@listItem,:id=>@store.id,:share=>share %></td>
+				</tr>
+				<% end %>
+			</table>
+		</div>
+		<div class="span4">
+			<span class="label label-info">Info</span>
+			<p>
+				<small> Another way to share is by email. Send an email from your registered email account
+					to listitbeta@gmail.com. You can cc one of your friend and they will get your shares!
+					Make the Subject line of your email as your STORE name and the email content the list
+					seperated by comma. </small>
+			</p>
+		</div>
+	</div>
+	<% if @shareList.empty? %>
+<p>
+	List not shared with anyone yet
+</p>
+<% end %>
+<% end %>
+</p>
+
+<p>
+	<b>Share this list by entering your friend's email</b>
+
+	<%= render "show_share_list" %>
+
+</p>
+<% end %>
+<p>
+	<%= link_to 'Back', shares_path %>
+</p>

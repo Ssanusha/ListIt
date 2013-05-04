@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+	</head>
+	<body>
+		<h1>Your TODO List for <%= @store.name %></h1>
+		<p>
+
+			<table>
+				<% if @list %>
+				<p>
+					<tr>
+						<% @list.each do |item| -%>
+						<td> <%= item.name %> </td>
+						<td> <%= item.quantity %> </td>
+					</tr>
+
+					<% end %>
+
+					<% if @list.empty? %>
+				<p>
+					No Items in the List
+				</p>
+				<% end %>
+				<% end %>
+		</p>
+		</table>
+
+		</p>
+		<p>
+			To login to the site, just follow this link: <%= @url %>.
+		</p>
+		<p>
+			Cheers!
+			<br>
+			ListIt Team.
+		</p>
+	</body>
+</html>

@@ -1,0 +1,11 @@
+<%= form_for @newShare , :url => { :action => "add_share_item",:id => @store.id } do |f| %>
+<div class="input-prepend">
+<span class="add-on">Name <i class="icon-user"></i></span><%= f.text_field :share_name, :class=>'span2' %>
+</div>
+
+<div class="input-prepend">	
+<span class="add-on">Email <i class="icon-envelope"></i></span><%= f.text_field :share_email, :class=>'span2' %>
+</div>
+<%= f.submit 'Share', :class=>'btn btn-primary'%>
+<!-- ,:action => 'add_item', :class => "submit", :id => @store.id -->
+<%end%>
